@@ -9,7 +9,7 @@ mediterranean <- read.csv(file="./Dataset_Risk_Assessment_Mediterranean_Sea.csv"
 # Bounding box coordinates
 bbxmin=-180
 bbxmax=180
-bbymin=-90
+bbymin=-90 # latitude minimum
 bbymax=90
 
 # Year of interest
