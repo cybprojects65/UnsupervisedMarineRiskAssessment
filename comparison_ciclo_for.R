@@ -26,7 +26,7 @@ calcPerformance<-function(A_1_B_1,A_0_B_1,A_1_B_0,A_0_B_0,comparisondf){
 
 
 # Definizione degli approcci e degli anni
-approcci <- c("MultiKmeans", "Xmeans", "FCM", "DBSCAN")
+approcci <- c("MultiKmeans", "FCM", "Xmeans", "DBSCAN")
 anni <- 2017:2021
 
 # Creazione di una nuova cartella per i file di output

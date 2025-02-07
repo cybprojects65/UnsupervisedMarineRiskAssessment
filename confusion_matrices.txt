@@ -1,0 +1,88 @@
+
+> # Scrivi il titolo per ogni anno e metrica
+> for (year in years) {
++   cat("Confusion Matrix per l'anno:", year, "\n")
++   
++   # Filtro i dati per  .... [TRUNCATED] 
+Confusion Matrix per l'anno: 2017 
+
+Matrice di Confusione per l'Accuracy:
+            MultiKmeans      FCM   Xmeans   DBSCAN
+MultiKmeans     0.00000 89.58534 86.69238 89.00675
+FCM            89.58534  0.00000 93.24976 78.59209
+Xmeans         86.69238 93.24976  0.00000 76.66345
+DBSCAN         89.00675 78.59209 76.66345  0.00000
+
+Matrice di Confusione per il Kappa:
+            MultiKmeans       FCM    Xmeans    DBSCAN
+MultiKmeans   0.0000000 0.7831099 0.7215143 0.7827362
+FCM           0.7831099 0.0000000 0.8464432 0.5853838
+Xmeans        0.7215143 0.8464432 0.0000000 0.5497016
+DBSCAN        0.7827362 0.5853838 0.5497016 0.0000000
+
+Confusion Matrix per l'anno: 2018 
+
+Matrice di Confusione per l'Accuracy:
+            MultiKmeans      FCM   Xmeans   DBSCAN
+MultiKmeans     0.00000 89.58534 86.69238 89.00675
+FCM            89.58534  0.00000 93.24976 78.59209
+Xmeans         86.69238 93.24976  0.00000 76.66345
+DBSCAN         89.00675 78.59209 76.66345  0.00000
+
+Matrice di Confusione per il Kappa:
+            MultiKmeans       FCM    Xmeans    DBSCAN
+MultiKmeans   0.0000000 0.7831099 0.7215143 0.7827362
+FCM           0.7831099 0.0000000 0.8464432 0.5853838
+Xmeans        0.7215143 0.8464432 0.0000000 0.5497016
+DBSCAN        0.7827362 0.5853838 0.5497016 0.0000000
+
+Confusion Matrix per l'anno: 2019 
+
+Matrice di Confusione per l'Accuracy:
+            MultiKmeans      FCM   Xmeans   DBSCAN
+MultiKmeans     0.00000 89.58534 86.69238 89.00675
+FCM            89.58534  0.00000 93.24976 78.59209
+Xmeans         86.69238 93.24976  0.00000 76.66345
+DBSCAN         89.00675 78.59209 76.66345  0.00000
+
+Matrice di Confusione per il Kappa:
+            MultiKmeans       FCM    Xmeans    DBSCAN
+MultiKmeans   0.0000000 0.7831099 0.7215143 0.7827362
+FCM           0.7831099 0.0000000 0.8464432 0.5853838
+Xmeans        0.7215143 0.8464432 0.0000000 0.5497016
+DBSCAN        0.7827362 0.5853838 0.5497016 0.0000000
+
+Confusion Matrix per l'anno: 2020 
+
+Matrice di Confusione per l'Accuracy:
+            MultiKmeans      FCM   Xmeans   DBSCAN
+MultiKmeans     0.00000 89.58534 86.69238 89.00675
+FCM            89.58534  0.00000 93.24976 78.59209
+Xmeans         86.69238 93.24976  0.00000 76.66345
+DBSCAN         89.00675 78.59209 76.66345  0.00000
+
+Matrice di Confusione per il Kappa:
+            MultiKmeans       FCM    Xmeans    DBSCAN
+MultiKmeans   0.0000000 0.7831099 0.7215143 0.7827362
+FCM           0.7831099 0.0000000 0.8464432 0.5853838
+Xmeans        0.7215143 0.8464432 0.0000000 0.5497016
+DBSCAN        0.7827362 0.5853838 0.5497016 0.0000000
+
+Confusion Matrix per l'anno: 2021 
+
+Matrice di Confusione per l'Accuracy:
+            MultiKmeans      FCM   Xmeans   DBSCAN
+MultiKmeans     0.00000 89.58534 86.69238 89.00675
+FCM            89.58534  0.00000 93.24976 78.59209
+Xmeans         86.69238 93.24976  0.00000 76.66345
+DBSCAN         89.00675 78.59209 76.66345  0.00000
+
+Matrice di Confusione per il Kappa:
+            MultiKmeans       FCM    Xmeans    DBSCAN
+MultiKmeans   0.0000000 0.7831099 0.7215143 0.7827362
+FCM           0.7831099 0.0000000 0.8464432 0.5853838
+Xmeans        0.7215143 0.8464432 0.0000000 0.5497016
+DBSCAN        0.7827362 0.5853838 0.5497016 0.0000000
+
+
+> sink()  # Termina la scrittura sul file
