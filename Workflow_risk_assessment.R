@@ -13,26 +13,29 @@ bbymin=-90 # latitude minimum
 bbymax=90
 
 # Year of interest
-year = "2017"
+year = "2021"
 
 # Selection of my study area and features
 selection<-mediterranean[which((mediterranean$longitude>=bbxmin)&(mediterranean$longitude<=bbxmax)&(mediterranean$latitude>=bbymin)&(mediterranean$latitude<=bbymax)), ]
 
+#per fare il risk assessment nel mar mediterrano, land distance e mean depth sono stati invertiti 
+
+
 selected_features<-c("longitude","latitude",
-                     "environment.2017_land_distance",
-                     "environment.2017_mean_depth",
-                     "environment.2017_net_primary_production",
-                     "environment.2017_sea.bottom_dissolved_oxygen",
-                     "fishing.activity.2017_total_fishing",
-                     "species.richness.2017",
-                     "stocks.richness.2017",
-                     "thermohalinity_2017"
+                     "environment.2021_land_distance",
+                     "environment.2021_mean_depth",
+                     "environment.2021_net_primary_production",
+                     "environment.2021_sea.bottom_dissolved_oxygen",
+                     "fishing.activity.2021_total_fishing",
+                     "species.richness.2021",
+                     "stocks.richness.2021",
+                     "thermohalinity_2021"
                      )
 
 cat(paste0("***Initialization***", "\n"))
 
 # n_centroidi <- 7
-multi_centroidi<-  c(2)        #seq(from=2, to=20, by=1)
+multi_centroidi<-  c(4)        #seq(from=2, to=20, by=1)
 N <- 50
 
 bics<-c()
