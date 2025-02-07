@@ -26,7 +26,7 @@ calcPerformance<-function(A_1_B_1,A_0_B_1,A_1_B_0,A_0_B_0,comparisondf){
 
 
 # Definizione degli approcci e degli anni
-approcci <- c("Kmeans", "ANN", "VAE", "Xmeans", "FCM", "DBSCAN")
+approcci <- c("MultiKmeans", "Xmeans", "FCM", "DBSCAN")
 anni <- 2017:2021
 
 # Creazione di una nuova cartella per i file di output
@@ -65,26 +65,39 @@ confronta_approcci <- function(approccio1, approccio2, anno) {
   
   cat("merging files\n")
   
-  for(r in dim(data1)[1]){
-    
-    #prendere la riga corrispondente in data2
-    #prendere il risultato di hotspot in data2
-    #prendere il risultato di hotspot in data1
-    #costruire una nuova riga (longitude, latitude, A, B)
-    #aggiungere la riga ad un dataframe
-    
-  }
-  #rinominare le colonne del data frame
+  #for(r in dim(data1)[1]){
   
-  comparisondf <<- data1 %>%
-    dplyr::select(longitude, latitude, hotspot) %>%
-    dplyr::rename(A = hotspot) %>%
-    dplyr::inner_join(
-      data2 %>% 
-        dplyr::select(longitude, latitude, hotspot) %>% 
-        dplyr::rename(B = hotspot),
-      by = c("longitude", "latitude")
-    )
+  #prendere la riga corrispondente in data2
+  #prendere il risultato di hotspot in data2
+  #prendere il risultato di hotspot in data1
+  #costruire una nuova riga (longitude, latitude, A, B)
+  #aggiungere la riga ad un dataframe
+  
+  #}
+  
+  
+  # Inizializzazione del dataframe per raccogliere i risultati
+  comparisondf <- data.frame(longitude = numeric(0), latitude = numeric(0), A = numeric(0), B = numeric(0))
+  
+  # Ciclo per confrontare le righe corrispondenti
+  for (r in 1:nrow(data1)) {
+    # Prendere la riga corrispondente in data2
+    row_data1 <- data1[r, ]
+    row_data2 <- data2[r, ]
+    
+    # Prendere i risultati di hotspot (A per data1 e B per data2)
+    A <- row_data1$hotspot
+    B <- row_data2$hotspot
+    
+    # Costruire una nuova riga
+    new_row <- data.frame(longitude = row_data1$longitude, latitude = row_data1$latitude, A = A, B = B)
+    
+    # Aggiungere la riga al dataframe
+    comparisondf <- rbind(comparisondf, new_row)
+  }
+  
+  
+  
   
   
   
@@ -120,7 +133,7 @@ for (anno in anni) {
     rowtoinsert<-c(approccio1,approccio2,anno,accuracy_k[1],accuracy_k[2])
     comparison_df_total<-rbind(comparison_df_total,rowtoinsert)
   }
-  stooop
+  #stooop
 }
 
 names(comparison_df_total)<-c("method1","method2","year","accuracy","kappa")
