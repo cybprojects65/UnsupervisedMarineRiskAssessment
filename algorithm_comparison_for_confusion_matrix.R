@@ -102,6 +102,7 @@ confronta_approcci <- function(approccio1, approccio2, anno) {
     probabilities<-data2$distance_class_interpretation
     hotspots<-rep(0,length(probabilities))
     pthreshold<-as.numeric(quantile(probabilities)[3]) #50th perc
+    #pthreshold<-0.99
     hotspots[which(probabilities>=pthreshold)]<-1
     data2$hotspot<-hotspots
   }
