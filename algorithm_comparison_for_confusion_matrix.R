@@ -26,7 +26,8 @@ calcPerformance<-function(A_1_B_1,A_0_B_1,A_1_B_0,A_0_B_0,comparisondf){
 
 
 # Definizione degli approcci e degli anni
-approcci <- c("MultiKmeans", "FCM", "Xmeans", "DBSCAN")
+approcci <- c("MultiKmeans", "FCM", "Xmeans", "DBSCAN","VAE","ANN")
+
 anni <- 2017:2021
 
 # Creazione di una nuova cartella per i file di output
@@ -75,6 +76,35 @@ confronta_approcci <- function(approccio1, approccio2, anno) {
   
   #}
   
+  #check if one of the datasets is VAE
+  if("reconstruction_log_probability" %in% names(data1)){
+    probabilities<-data1$reconstruction_log_probability
+    hotspots<-rep(0,length(probabilities))
+    pthreshold<-as.numeric(quantile(probabilities)[3]) #50th perc
+    hotspots[which(probabilities<=pthreshold)]<-1
+    data1$hotspot<-hotspots
+  }
+  if("reconstruction_log_probability" %in% names(data2)){
+    probabilities<-data2$reconstruction_log_probability
+    hotspots<-rep(0,length(probabilities))
+    pthreshold<-as.numeric(quantile(probabilities)[3]) #50th perc
+    hotspots[which(probabilities<=pthreshold)]<-1
+    data2$hotspot<-hotspots
+  }
+  if("distance_class_interpretation" %in% names(data1) && is.numeric(data1$distance_class_interpretation)){
+    probabilities<-data1$distance_class_interpretation
+    hotspots<-rep(0,length(probabilities))
+    pthreshold<-as.numeric(quantile(probabilities)[3]) #50th perc
+    hotspots[which(probabilities>=pthreshold)]<-1
+    data1$hotspot<-hotspots
+  }
+  if("distance_class_interpretation" %in% names(data2) && is.numeric(data2$distance_class_interpretation)){
+    probabilities<-data2$distance_class_interpretation
+    hotspots<-rep(0,length(probabilities))
+    pthreshold<-as.numeric(quantile(probabilities)[3]) #50th perc
+    hotspots[which(probabilities>=pthreshold)]<-1
+    data2$hotspot<-hotspots
+  }
   
   # Inizializzazione del dataframe per raccogliere i risultati
   comparisondf <- data.frame(longitude = numeric(0), latitude = numeric(0), A = numeric(0), B = numeric(0))
@@ -98,11 +128,6 @@ confronta_approcci <- function(approccio1, approccio2, anno) {
     # Aggiungere la riga al dataframe
     comparisondf <- rbind(comparisondf, new_row)
   }
-  
-  
-  
-  
-  
   
   cat("comparing files\n")
   threshold1_A=0.9
