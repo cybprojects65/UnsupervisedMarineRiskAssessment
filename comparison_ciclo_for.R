@@ -83,10 +83,13 @@ confronta_approcci <- function(approccio1, approccio2, anno) {
   for (r in 1:nrow(data1)) {
     # Prendere la riga corrispondente in data2
     row_data1 <- data1[r, ]
-    row_data2 <- data2[r, ]
+    xy_data1_row<-xy_data1[r]
+    r2<-which(xy_data2 == xy_data1_row)
+    row_data2 <- data2[r2, ]
     
     # Prendere i risultati di hotspot (A per data1 e B per data2)
     A <- row_data1$hotspot
+    
     B <- row_data2$hotspot
     
     # Costruire una nuova riga
