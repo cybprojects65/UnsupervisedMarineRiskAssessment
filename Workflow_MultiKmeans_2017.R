@@ -34,8 +34,8 @@ selected_features<-c("longitude","latitude",
 cat(paste0("***Initialization***", "\n"))
 
 # n_centroidi <- 7
-multi_centroidi<-  c(4)        #seq(from=2, to=20, by=1)
-N <- 50
+multi_centroidi<-  c(4,10,15)        #seq(from=2, to=20, by=1)
+N <- 10
 
 bics<-c()
 for (n_centroidi in multi_centroidi){
