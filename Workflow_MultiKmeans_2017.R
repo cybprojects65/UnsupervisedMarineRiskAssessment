@@ -200,8 +200,12 @@ for (n_centroidi in multi_centroidi){
     centroid_distribution.norm<-centroid_distribution/sum(centroid_distribution)
     reference<-rep(mean(centroid_distribution),length(centroid_distribution) )
     reference.norm<-reference/sum(reference)
-    chi<-chisq.test(centroid_distribution.norm*1000, p = reference.norm*1000, rescale.p = TRUE)
-    bic<-chi$p.value
+    #chi<-chisq.test(centroid_distribution.norm*1000, p = reference.norm*1000, rescale.p = TRUE)
+    #bic<-chi$p.value
+    #chi square pvalue is monotonic inverse in the p-value
+    chisq<-sum((centroid_distribution.norm-reference.norm)^2/reference.norm)/length(centroid_distribution.norm)
+    bic<-1/chisq
+    
   }
   cat("ChiSqr:",bic,"\n")
   bics<-c(bics,bic)
