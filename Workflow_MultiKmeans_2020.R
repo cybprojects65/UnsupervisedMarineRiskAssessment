@@ -203,7 +203,7 @@ for (n_centroidi in multi_centroidi){
     #chi<-chisq.test(centroid_distribution.norm, p = reference.norm)
     #chi<-chisq.test(centroid_distribution.norm*1000, p = reference.norm*1000, rescale.p = TRUE)
     #bic<-chi$p.value
-    chisq<-sum((centroid_distribution.norm-reference.norm)^2/reference.norm)/length(centroid_distribution.norm)
+    chisq<-sum((centroid_distribution.norm*1000-reference.norm*1000)^2/(reference.norm*1000))/length(centroid_distribution.norm)
     bic<-1/chisq
   }
   cat("ChiSqr:",bic,"\n")
